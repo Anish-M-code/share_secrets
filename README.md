@@ -5,7 +5,7 @@ Working:-
 
 1) Converts your secret to random unguessable backup codes. Limitations only maximum 10 shares/codes and minimum 2 shares is allowed.
 
-2)Reconstructs your secret from your backup codes on Demand.
+2) Reconstructs your secret from your backup codes on Demand.
 
 Properties:-
 
