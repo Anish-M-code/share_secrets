@@ -16,4 +16,5 @@ For security reasons even for the same secret new unguessable codes are generate
 NOTE: Don't use this program in high risky situations. And don't use it for any sensitive purpose. DEVELOPER NOT RESPONSIBLE FOR ANY DAMAGES ARISING FROM USE OF THIS SOFTWARE.
 
 Verify This software before use. 
+
 You can get my public OPENPGPKEY from here: https://outflaw.blogspot.com/2019/12/my-pgp-key.html
