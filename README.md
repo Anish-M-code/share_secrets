@@ -13,7 +13,7 @@ The secret cannot be constructed even if one among the backup codes is missing.
 
 For security reasons even for the same secret new unguessable codes are generated each time for security reasons. 
 
-NOTE: Don't use this program in high risky situations. And don't use it for any sensitive purpose. DEVELOPER NOT RESPONSIBLE FOR ANY DAMAGES ARISING FROM USE OF THIS SOFTWARE.
+NOTE: Don't use this program in high risky situations or for any sensitive purpose. DEVELOPER NOT RESPONSIBLE FOR ANY DAMAGES ARISING FROM USE OF THIS SOFTWARE.
 
 Verify This software before use. 
 
