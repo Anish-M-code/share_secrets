@@ -1,5 +1,5 @@
 # Pysecret
-A Simple crossplatform Secret sharing Tool using python3 . Initially Project Idea was Inspired by Samir Secret Sharing Scheme ssss debian package. This tool Can also be used as offline stateless Password Backup System. 
+A Simple crossplatform Secret sharing Tool using python3 . Initially Project Idea was Inspired by Samir Secret Sharing Scheme ssss debian package. This tool Can also be used as offline Password Backup System. 
 
 Working:-
 
@@ -11,7 +11,7 @@ Properties:-
 
 The secret/password cannot be constructed even if one among the backup codes is missing.
 
-For security reasons even for the same secret new unguessable codes are generated each time for security reasons. 
+Even for the same secret new unguessable codes are generated each time for security reasons. 
 
 NOTE: Don't use this program in high risky situations or for any sensitive purpose. DEVELOPER NOT RESPONSIBLE FOR ANY DAMAGES ARISING FROM USE OF THIS SOFTWARE.
 
