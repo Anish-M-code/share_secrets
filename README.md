@@ -15,6 +15,25 @@ Even for the same secret new unguessable codes are generated each time for secur
 
 NOTE: Don't use this program in high risky situations or for any sensitive purpose. DEVELOPER NOT RESPONSIBLE FOR ANY DAMAGES ARISING FROM USE OF THIS SOFTWARE.
 
-Verify This software before use. 
+You can get my public OPENPGPKEY from here: https://outflaw.blogspot.com/2019/12/my-pgp-key.html incase you want to verify this software for more security.
 
-You can get my public OPENPGPKEY from here: https://outflaw.blogspot.com/2019/12/my-pgp-key.html
+Quick Installation
+------------------
+
+Install from [PyPI](https://pypi.org/project/share-secrets/):
+
+```
+pip install share-secrets
+```
+Then run following commands to get started:-
+
+py -m share_secrets in windows
+python3 -m share_secrets in Linux based Distributions.
+
+Contribute to share-secrets
+---------------------------
+Currently i consider this as a personal project so i dont expect public contributions.
+Feel free to open issues if something breaks or for feature request. 
+
+
+
