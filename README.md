@@ -1,4 +1,4 @@
-# Pysecret
+# share_secrets
 A Simple crossplatform Secret sharing Tool using python3 . Initially Project Idea was Inspired by Samir Secret Sharing Scheme ssss debian package. This tool Can also be used as offline Password Backup System. 
 
 Working:-
