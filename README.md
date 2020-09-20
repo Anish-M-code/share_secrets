@@ -25,10 +25,16 @@ Install from [PyPI](https://pypi.org/project/share-secrets/):
 ```
 pip install share-secrets
 ```
-Then run following commands to get started:-
+Then run following commands in terminal/powershell to get started:-
 
-py -m share_secrets in windows
-python3 -m share_secrets in Linux based Distributions.
+For Windows:
+```
+py -m share_secrets 
+```
+For Linux based Distributions:
+```
+python3 -m share_secrets
+```
 
 Contribute to share-secrets
 ---------------------------
