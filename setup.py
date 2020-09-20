@@ -1,14 +1,11 @@
 from distutils.core import setup
-f=open('README.md')
-des=f.read()
-f.close()
 setup(
   name = 'share_secret',         
   packages = ['share_secret'],   
   version = '0.1',    
   license='GPLv3',        
   description = 'share secrets with ease.', 
-  long_description=des,
+  long_description='A simple secret sharing tool',
   author = 'Anish M',                  
   author_email = 'aneesh25861@gmail.com',     
   url = 'https://github.com/anish-m-code/share_secret',  
