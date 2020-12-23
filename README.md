@@ -22,7 +22,7 @@ You can get my public OPENPGPKEY from here: https://outflaw.blogspot.com/2019/12
 Quick Installation
 ------------------
 
-Install from [PyPI](https://pypi.org/project/share-secrets/):
+To Install from [PyPI](https://pypi.org/project/share-secrets/):
 
 Run the following commands in Linux terminal / Windows powershell / command prompt to get started:-
 
