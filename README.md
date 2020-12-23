@@ -24,10 +24,12 @@ Quick Installation
 
 Install from [PyPI](https://pypi.org/project/share-secrets/):
 
+Run the following commands in Linux terminal / Windows powershell / command prompt to get started:-
+
 ```
 pip install share-secrets
 ```
-Then run following commands in terminal/powershell to get started:-
+Then :-
 
 For Windows:
 ```
