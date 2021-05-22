@@ -24,21 +24,17 @@ Quick Installation
 
 To Install from [PyPI](https://pypi.org/project/share-secrets/):
 
-Run the following commands in Linux terminal / Windows powershell / command prompt to get started:-
+Run the following commands in Linux terminal / Windows powershell / command prompt to install :-
 
 ```
 pip install share-secrets
 ```
-Then :-
+Then to get started simply type :-
 
-For Windows:
 ```
-py -m share_secrets 
+share-secrets 
 ```
-For Linux based Distributions:
-```
-python3 -m share_secrets
-```
+To run the program by directly downloading from github refer [ Instructions](/Install.md) here.
 
 Contribute to share-secrets
 ---------------------------
