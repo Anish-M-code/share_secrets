@@ -1,7 +1,5 @@
 # share_secrets
 
-[![Run on Repl.it](https://repl.it/badge/github/plibither8/2048.cpp)](https://replit.com/@AnishM9/sharesecrets-1#.replit)
-
 A Simple crossplatform Secret sharing Tool using python3 . Initially Project Idea was Inspired by Samir Secret Sharing Scheme ssss debian package. This tool Can also be used as offline Password Backup System. 
 
 <img src="https://github.com/Anish-M-code/share_secret/raw/master/screenshot.png">
@@ -38,6 +36,10 @@ Then to get started simply type :-
 share-secrets 
 ```
 To run the program by directly downloading from github refer [ Instructions](/Install.md) here.
+
+### Quick Demo
+
+ click run on Repl.it from here:[![Run on Repl.it](https://repl.it/badge/github/plibither8/2048.cpp)](https://replit.com/@AnishM9/sharesecrets-1#.replit)
 
 Contribute to share-secrets
 ---------------------------
