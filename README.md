@@ -39,7 +39,7 @@ To run the program by directly downloading from github refer [ Instructions](/In
 
 ## Quick Demo
 
- Run on Repl.it from here: [![Run on Repl.it](https://repl.it/badge/github/plibither8/2048.cpp)](https://replit.com/@AnishM9/sharesecrets-1#.replit)
+ Run share-secrets on Repl.it from here:- . [![Run on Repl.it](https://repl.it/badge/github/plibither8/2048.cpp)](https://replit.com/@AnishM9/sharesecrets-1#.replit)
 
 Contribute to share-secrets
 ---------------------------
