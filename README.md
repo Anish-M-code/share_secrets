@@ -37,9 +37,9 @@ share-secrets
 ```
 To run the program by directly downloading from github refer [ Instructions](/Install.md) here.
 
-### Quick Demo
+## Quick Demo
 
- click run on Repl.it from here:[![Run on Repl.it](https://repl.it/badge/github/plibither8/2048.cpp)](https://replit.com/@AnishM9/sharesecrets-1#.replit)
+ Run on Repl.it from here: [![Run on Repl.it](https://repl.it/badge/github/plibither8/2048.cpp)](https://replit.com/@AnishM9/sharesecrets-1#.replit)
 
 Contribute to share-secrets
 ---------------------------
