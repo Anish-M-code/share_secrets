@@ -31,24 +31,25 @@ except ImportError:
     x = input('Press any key to continue...')
     sys.exit(1)
 
-A = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'o', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
+A = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'o', 'P', 'Q', 'R',
+     'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
 
 
-# converts Alphanumeric characters to numbers of base 36    
+# converts Alphanumeric characters to numbers of base 36
 def f(x):
-  store = []
-  for s in x:
-    count = 0
-    for i in range(36):
-        if A[i].lower() == s.lower():
-          store.append(i)
-          count = 1
-          break
-    if count == 0:
-      store.append(' ')
-  return tuple(store)                
+    store = []
+    for s in x:
+        count = 0
+        for i in range(36):
+            if A[i].lower() == s.lower():
+                store.append(i)
+                count = 1
+                break
+        if count == 0:
+            store.append(' ')
+    return tuple(store)
 
-    
+
 # converts base 36 numbers to alphanumeric charactors.
 def rf(x):
     store = []
@@ -56,12 +57,14 @@ def rf(x):
     for s in x:
         try:
             store.append(A[s])
-        except(IndexError, TypeError):
+        except (IndexError, TypeError):
             store.append(' ')
     q = ''.join(store)
     return q
-    
+
 # generates a key without keyfile.
+
+
 def ikey(x):
     seed = list(range(36))
     masterkey = []
@@ -76,10 +79,10 @@ def en(msg):
     x = f(msg)
     y = ikey(msg)
     for i in range(len(x)):
-            if type(x[i]) is int:
-                ciphertxt.append(((x[i]+y[i]) % 36))
-            else:
-                ciphertxt.append(' ')
+        if type(x[i]) is int:
+            ciphertxt.append(((x[i]+y[i]) % 36))
+        else:
+            ciphertxt.append(' ')
     ctxt = rf(tuple(ciphertxt))
     shk = rf(y)
     return (ctxt, shk)
@@ -101,7 +104,7 @@ def de(c, k):
         sys.exit(1)
     return rf(tuple(ciphertxt))
 
-    
+
 # function for secret splitting interface.
 def sprocess():
     table = []
@@ -114,7 +117,8 @@ def sprocess():
             if 1 < x < 11:
                 break
         except ValueError:
-            print('\nPlease enter a valid integer greater than 1 but less than or equal to 10!\n')
+            print(
+                '\nPlease enter a valid integer greater than 1 but less than or equal to 10!\n')
     msg = getpass.getpass('Enter the secret:')
     table += list(en(msg))
     for i in range(2, x):
@@ -137,44 +141,41 @@ def cprocess():
             if 1 < x < 11:
                 break
         except ValueError:
-                print('\nPlease enter a valid integer greater than 1 but less than or equal to 10!\n')
+            print(
+                '\nPlease enter a valid integer greater than 1 but less than or equal to 10!\n')
     for i in range(x):
-            table.append(getpass.getpass(str('Enter Share '+str(i+1)+':')))
+        table.append(getpass.getpass(str('Enter Share '+str(i+1)+':')))
     for i in range(x-1):
-            hook = []
-            a, b = table[-2], table[-1]
-            table.pop()
-            table.pop()
-            hook.append(de(a, b))
-            table += hook
+        hook = []
+        a, b = table[-2], table[-1]
+        table.pop()
+        table.pop()
+        hook.append(de(a, b))
+        table += hook
     print()
     print(''.join(table))
-        
 
-# function for main interface.    
+
+# function for main interface.
 def mm():
-   print('''\n           ---------------------------------------------------------------------
+    print('''\n           ---------------------------------------------------------------------
                |   SHARE-SECRET: SIMPLE SECRET SHARING USING PYTHON       |
            ---------------------------------------------------------------------''')
-   print('\n1) Split a secret into codes.')
-   print('2) Combine codes to recover secret.')
-   cmd = input('\nEnter command:')
-   if cmd == '1':
-       sprocess()
-       mm()
-   elif cmd == '2':
-       cprocess()
-       mm()
-   elif cmd.lower() == 'c' or cmd.lower() == 'close':
-      sys.exit()
-   else:
-      print('please enter 1 or 2 or \'c to exit!')
-      mm()
-   sys.exit()
+    print('\n1) Split a secret into codes.')
+    print('2) Combine codes to recover secret.')
+    cmd = input('\nEnter command:')
+    if cmd == '1':
+        sprocess()
+        mm()
+    elif cmd == '2':
+        cprocess()
+        mm()
+    elif cmd.lower() == 'c' or cmd.lower() == 'close':
+        sys.exit()
+    else:
+        print('please enter 1 or 2 or \'c to exit!')
+        mm()
+    sys.exit()
 
 
 mm()
-    
-   
-        
-        
