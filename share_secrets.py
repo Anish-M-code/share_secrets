@@ -1,6 +1,6 @@
 
 # share_secret
-# Copyright (C) 2018-2020 M.Anish <aneesh25861@gmail.com>
+# Copyright (C) 2018-2023 M.Anish <aneesh25861@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -150,7 +150,6 @@ def cprocess():
     print()
     print(''.join(table))
         
-
 # function for main interface.    
 def mm():
    print('''\n           ---------------------------------------------------------------------
@@ -158,23 +157,19 @@ def mm():
            ---------------------------------------------------------------------''')
    print('\n1) Split a secret into codes.')
    print('2) Combine codes to recover secret.')
-   cmd = input('\nEnter command:')
+   cmd = input('\nEnter choice:')
    if cmd == '1':
        sprocess()
-       mm()
    elif cmd == '2':
        cprocess()
-       mm()
-   elif cmd.lower() == 'c' or cmd.lower() == 'close':
-      sys.exit()
    else:
-      print('please enter 1 or 2 or \'c to exit!')
-      mm()
-   sys.exit()
-
-
-mm()
-    
-   
-        
-        
+      print('\nplease enter 1 or 2 to select options or press ctrl + c to exit!')
+      
+while True:
+    try:
+        mm()
+    except KeyboardInterrupt:
+        sys.exit(0)
+    except Exception as e:
+        print(e)
+        sys.exit(1)

@@ -2,7 +2,7 @@
 
 A Simple crossplatform Secret sharing Tool using python3 . Initially Project Idea was Inspired by Samir Secret Sharing Scheme ssss debian package. This tool Can also be used as offline Password Backup System. 
 
-<img src="https://github.com/Anish-M-code/share_secret/raw/master/screenshot.png">
+![screenshot](https://user-images.githubusercontent.com/58029804/210178132-b543d5aa-d28a-4c80-80f9-9f042a8375c1.png)
 
 Working:-
 
@@ -18,7 +18,7 @@ Even for the same secret new unguessable codes are generated each time for secur
 
 NOTE: Don't use this program in high risky situations or for any sensitive purpose. DEVELOPER NOT RESPONSIBLE FOR ANY DAMAGES ARISING FROM USE OF THIS SOFTWARE.
 
-You can get my public OPENPGPKEY from here: https://outflaw.blogspot.com/2019/12/my-pgp-key.html incase you want to verify this software for more security.
+You can get my public OPENPGPKEY from here: https://outflaw.blogspot.com/2022/12/my-new-pgp-key.html incase you want to verify this software for more security.
 
 Quick Installation
 ------------------
@@ -45,6 +45,3 @@ Contribute to share-secrets
 ---------------------------
 Currently i consider this as a personal project so i dont expect public contributions.
 Feel free to open issues if something breaks or for feature request. 
-
-
-
