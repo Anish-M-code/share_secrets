@@ -17,30 +17,32 @@
 
 ''' 
 
-Share_secret is a simple secret sharing tool using python3 developed by M.Anish only.
-Converts secrets to more than one code . The secret can't be recovered even if a single code is missing
+Share_secret is a simple secret sharing tool using python3 
+developed by M.Anish only.
+Converts secrets to more than one code . The secret can't be 
+recovered even if a single code is missing
 
 '''
 try:
-    import os
     import getpass
     import secrets
     import sys
+    from typing import Union
 except ImportError:
     print('Critical Error: Required Modules Not found!\n')
-    x = input('Press any key to continue...')
+    null: str = input('Press any key to continue...')
     sys.exit(1)
 
-A = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'o', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
+ALPHABET: tuple = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
 
 
 # converts Alphanumeric characters to numbers of base 36    
-def f(x):
-  store = []
-  for s in x:
-    count = 0
+def alpha_to_base36(alpha_str: Union[str, tuple]) -> tuple:
+  store: list = []
+  for char in alpha_str:
+    count: int = 0
     for i in range(36):
-        if A[i].lower() == s.lower():
+        if ALPHABET[i].lower() == char.lower():
           store.append(i)
           count = 1
           break
@@ -50,121 +52,127 @@ def f(x):
 
     
 # converts base 36 numbers to alphanumeric charactors.
-def rf(x):
-    store = []
-    q = ''
-    for s in x:
+def base36_to_alpha(base36: tuple) -> str:
+    store: list[str] = []
+    alpha: str = ''
+    for char in base36:
         try:
-            store.append(A[s])
+            store.append(ALPHABET[char])
         except(IndexError, TypeError):
             store.append(' ')
-    q = ''.join(store)
-    return q
+    alpha = ''.join(store)
+    return alpha
     
+
 # generates a key without keyfile.
-def ikey(x):
-    seed = list(range(36))
-    masterkey = []
-    for i in range(len(x)):
+def ikey(message: str) -> tuple:
+    seed: list = list(range(36))
+    masterkey: list = []
+    for i in range(len(message)):
         masterkey.append(secrets.choice(seed))
     return tuple(masterkey)
 
 
 # encrypts a given string and returns ciphertxt and key as a tuple. (no file generated!)
-def en(msg):
-    ciphertxt = []
-    x = f(msg)
-    y = ikey(msg)
+def encrypt(message: str) -> tuple:
+    ciphertxt: list[str] = []
+    x: tuple = alpha_to_base36(message)
+    y: tuple = ikey(message)
     for i in range(len(x)):
-            if type(x[i]) is int:
+            if isinstance(x[i], int):
                 ciphertxt.append(((x[i]+y[i]) % 36))
             else:
                 ciphertxt.append(' ')
-    ctxt = rf(tuple(ciphertxt))
-    shk = rf(y)
+    ctxt: str = base36_to_alpha(tuple(ciphertxt))
+    shk: str = base36_to_alpha(y)
     return (ctxt, shk)
 
 
 # decrypts a given encrypted string and returns a plaintxt as output.
-def de(c, k):
-    ciphertxt = []
-    x = f(c)
-    y = f(k)
+def decrypt(c: str, k:str) -> str:
+    ciphertxt: list = []
+    x: tuple = alpha_to_base36(c)
+    y: tuple = alpha_to_base36(k)
     if len(x) <= len(y):
         for i in range(len(x)):
-            if type(x[i]) is int and type(y[i]) is int:
+            if isinstance(x[i], int) and isinstance(y[i], int):
                 ciphertxt.append(((x[i]-y[i]) % 36))
             else:
                 ciphertxt.append(' ')
     else:
-        x = input('Incorrect Input!!!\nPress any key to continue...')
+        input('Incorrect Input!!!\nPress any key to continue...')
         sys.exit(1)
-    return rf(tuple(ciphertxt))
+    return base36_to_alpha(tuple(ciphertxt))
 
     
 # function for secret splitting interface.
 def sprocess():
-    table = []
+    table: list = []
     print('''\n         ---------------------------------------------------------
                |            Secret splitting                   |
          -----------------------------------------------------------''')
     while 1:
         try:
-            x = int(input('\nEnter the number of shares(atmost 10,atleast 2):'))
+            x = int(input('\nEnter the number of shares(atmost 10,atleast 2): '))
             if 1 < x < 11:
                 break
         except ValueError:
             print('\nPlease enter a valid integer greater than 1 but less than or equal to 10!\n')
-    msg = getpass.getpass('Enter the secret:')
-    table += list(en(msg))
+    msg: str = getpass.getpass('Enter the secret: ')
+    table += list(encrypt(msg))
     for i in range(2, x):
-        tmp = table[-1]
+        tmp: str = table[-1]
         table.pop()
-        table += list(en(tmp))
+        table += list(encrypt(tmp))
     for i in range(len(table)):
         print('SHARE', i+1, ':', table[i])
 
 
 # function for secret combining interface.
-def cprocess():
-    table = []
+def cprocess() -> None:
+    table: list = []
     print('''\n          ---------------------------------------------------------
                 |          Secret Combine                     |
           -----------------------------------------------------------''')
     while 1:
         try:
-            x = int(input('\nEnter no. of shares to combine(atmost 10,atleast 2):'))
+            x: int = int(input('\nEnter no. of shares to combine(atmost 10,atleast 2): '))
             if 1 < x < 11:
                 break
         except ValueError:
                 print('\nPlease enter a valid integer greater than 1 but less than or equal to 10!\n')
     for i in range(x):
-            table.append(getpass.getpass(str('Enter Share '+str(i+1)+':')))
+            table.append(getpass.getpass(str('Enter Share '+str(i+1)+': ')))
     for i in range(x-1):
-            hook = []
+            hook: list = []
             a, b = table[-2], table[-1]
             table.pop()
             table.pop()
-            hook.append(de(a, b))
+            hook.append(decrypt(a, b))
             table += hook
     print()
     print(''.join(table))
         
+
 # function for main interface.    
-def mm():
+def mm() -> None:
    print('''\n           ---------------------------------------------------------------------
                |   SHARE-SECRET: SIMPLE SECRET SHARING USING PYTHON       |
            ---------------------------------------------------------------------''')
    print('\n1) Split a secret into codes.')
    print('2) Combine codes to recover secret.')
-   cmd = input('\nEnter choice:')
+   print('3) Quit application.')
+   cmd: str = input('\nEnter choice: ')
    if cmd == '1':
        sprocess()
    elif cmd == '2':
        cprocess()
+   elif cmd == '3':
+       sys.exit(0)
    else:
-      print('\nplease enter 1 or 2 to select options or press ctrl + c to exit!')
+      print('\nplease enter 1, 2 or 3 to select options or press ctrl + c to exit!')
       
+
 while True:
     try:
         mm()
